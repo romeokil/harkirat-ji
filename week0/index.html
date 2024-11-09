@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zerodha landing Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar{
+            margin:0px 20px;
+            display:flex;
+            justify-content: space-between;
+            padding: 0px 20px;
+            /* box-shadow:0px 4px 8px black; */
+        }
+        .logo{
+            width:30%;
+        }
+        .logo img{
+            padding:10px;
+            width:50%;
+            /* height:50%; */
+        }
+        .nav-links{
+            display:flex;
+            justify-content: space-around;
+        }
+        .nav-elements{
+            padding:5px 15px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size:12px;
+        }
+        .hero-section{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .hero-section-img,.hero-section-text{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+        .hero-section-img img{
+            width:80%;
+        }
+        .hero-section-text{
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .hero-heading{
+            color:black;
+            font-size:30px;
+        }
+        .hero-para{
+            padding: -3px 0px;
+            font-size:20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .btn{
+            background-color: rgb(35, 116, 182);
+            color:white;
+            font-size:15px;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 7px;
+
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- navbar started -->
+
+    <div class="navbar">
+        <div class="logo">
+            <img src="zerodhalogo0.svg" alt="">
+        </div>
+        <div class="nav-links">
+            <div class="nav-elements">Signup</div>
+            <div class="nav-elements">About</div>
+            <div class="nav-elements">Products</div>
+            <div class="nav-elements">Pricing</div>
+            <div class="nav-elements">Support</div>
+            <div class="nav-elements"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </div>
+    <!-- navbar ended -->
+
+    <!-- hero section started -->
+
+    <div class="hero-section">
+        <div class="hero-section-img">
+            <img src="zerodhahero1.png" alt="This is hero section">
+        </div>
+        <div class="hero-section-text">
+            <p class="hero-heading">Invest in everything</p>
+            <p class="hero-para">Online platform to invest in stocks,derivatives,mutual funds,ETFs,bonds,and more</p>
+            <button class="btn">Sign up for free</button>
+        </div>
+    </div>
+</body>
+</html>
