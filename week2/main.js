@@ -1,26 +1,31 @@
 const express=require("express");
 const zod=require("zod");
+const schema=zod.object({
+    username:zod.string().email(),
+    password:zod.string().min(8)
+})
 const app=express();
-
-const schema=zod.array(zod.number());
-const PORT=8000;
 app.use(express.json())
+
+const PORT=8001;
+
 app.get('/',(req,res)=>{
-    console.log("First get route!!");
+    console.log("First get route!!")
     res.json({
-        "msg":"done!!!"
-    })
-})
-app.post('/checkkidneys',(req,res)=>{
-    const kidneys=req.body;
-    const kidneyslength=kidneys.length;
-    const checkkidneys=schema.safeParse(kidneys)
-    console.log(checkkidneys);
-    res.json({
-        checkkidneys
+        "msg":"done!!"
     })
 })
 
+app.post('/authenticate',(req,res)=>{
+    const obj={
+        username:req.body.username,
+        password:req.body.password
+    }
+    const check=schema.safeParse(obj);
+    res.json({
+        check
+    })
+})
 app.listen(PORT,()=>{
-    console.log(`Server running at ${PORT}`)
+    console.log(`Server is running at ${PORT}`)
 })
