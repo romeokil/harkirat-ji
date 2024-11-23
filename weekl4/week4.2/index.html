@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="task" type="text" placeholder="Enter your task">
+    <input id="description" type="text" placeholder="Enter the description">
+    <button id="btn">Add Todo</button>
+    <div id="list">
+        <!-- <h1>hello</h1> -->
+    </div>
+    <script>
+        function markdone(button){
+            console.log("btn clicked!")
+            // console.log(e)
+            // console.log(e.target)
+            console.log(button)
+            button.innerHTML="Work done!!"
+        }
+        let arr=[];
+        let button=document.getElementById("btn");
+        console.log(button);
+        let task=document.getElementById("task");
+        console.log(task);
+        let desc=document.getElementById("description");
+        console.log(desc);
+        let list=document.getElementById("list");
+        console.log(list);
+        button.addEventListener('click',()=>{
+            let taskvalue=task.value;
+            let descvalue=desc.value;
+            let object={
+                taskvalue,
+                descvalue,
+            }   
+            task.value="";
+            desc.value="";
+            console.log("object ",object);
+            arr.push(object);
+            console.log("array ",arr)
+            console.log("clicked");
+            let totalhtml="";
+            arr.map((item)=>{
+                let html=`
+                <div class="todo">
+                    <p>${item.taskvalue}</p>
+                    <p>${item.descvalue}</p>
+                    <button onclick="markdone(this)" id="changebtn" class="button">Mark as done!</button>
+                </div>`
+                totalhtml+=html;
+                console.log(`task-> ${item.taskvalue}`);
+                console.log(`desc-> ${item.descvalue}`);
+            })
+            if(!totalhtml) list.innerHTML="";
+            else list.innerHTML=totalhtml;
+        })
+    </script>
+</body>
+</html>
