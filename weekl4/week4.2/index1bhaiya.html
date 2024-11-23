@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<br>
+    <input id="task" type="text" placeholder="task"><br></br>
+    <input id="description" type="text" placeholder="description"><br></br>
+    <button onclick="addtodo()">Add todo</button><br></br>
+    <div id="list"></div>
+    <script>
+        let globalid=1;
+        function markdone(globalid){
+            console.log("button clicked!!")
+            console.log(globalid)
+            let element=document.getElementById(globalid);
+            console.log(element);
+            element.children[2].innerHTML="Mark done!"
+        }
+        function createElement(task,description,globalid){
+            let outerdiv=document.createElement("div");
+            let firstinnerdiv=document.createElement("div");
+            firstinnerdiv.innerHTML=`${task}`;
+            let secondinnerdiv=document.createElement("div");
+            secondinnerdiv.innerHTML=`${description}`;
+            let thirdinnerbutton=document.createElement("button");
+            thirdinnerbutton.innerHTML="Mark as done!!"
+            thirdinnerbutton.setAttribute("onclick",`markdone(${globalid})`)
+            outerdiv.appendChild(firstinnerdiv);
+            outerdiv.appendChild(secondinnerdiv);
+            outerdiv.appendChild(thirdinnerbutton);
+            outerdiv.setAttribute("id",`${globalid}`);
+            return outerdiv;
+        }
+        function addtodo(){
+            let task=document.getElementById("task").value;
+            let description=document.getElementById("description").value;
+            let list=document.getElementById("list");
+            list.appendChild(createElement(task,description,globalid++));
+        }
+    </script>
+</body>
+</html>
